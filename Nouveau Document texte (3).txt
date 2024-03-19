@@ -1,0 +1,183 @@
+Microsoft Windows [version 10.0.22621.3296]
+(c) Microsoft Corporation. Tous droits réservés.
+
+C:\Users\Mortadha>mongosh
+Current Mongosh Log ID: 65f8b6d016e1a9aa268bf201
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.0
+Using MongoDB:          7.0.7
+Using Mongosh:          2.2.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2024-03-18T18:42:51.165+01:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use conatct
+switched to db conatct
+conatct> db.contactlist
+conatct.contactlist
+conatct> db.contactlist.insertMany([{Last name: Ben, First name: Moris, Email: ben@gmail.com, age:26},{Last name: Kefi, First name: Seif, Email: kefi@gmail.com, age:15},{Last name: Emilie, First name: brouge, Email: emilie.b@gmail.com, age:40},{Last name: Alex, First name: brown, age: 4},{Last name: Denzel, First name: Washington, age:3
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:33)
+
+> 1 | db.contactlist.insertMany([{Last name: Ben, First name: Moris, Email: ben@gmail.com, age:26},{Last name: Kefi, First name: Seif, Email: kefi@gmail.com, age:15},{Last name: Emilie, First name: brouge, Email: emilie.b@gmail.com, age:40},{Last name: Alex, First name: brown, age: 4},{Last name: Denzel, First name: Washington, age:3
+    |                                  ^
+  2 |
+
+conatct>
+
+conatct> db.contactlist.insertMany([{Last name: Ben, First name: Moris, Email: ben@gmail.com, age:26},{Last name: Kefi, First name: Seif, Email: kefi@gmail.com, age:15},{Last name: Emilie, First name: brouge, Email: emilie.b@gmail.com, age:40},{Last name: Alex, First name: brown, age: 4},{Last name: Denzel, First name: Washington, age:3}])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:33)
+
+> 1 | db.contactlist.insertMany([{Last name: Ben, First name: Moris, Email: ben@gmail.com, age:26},{Last name: Kefi, First name: Seif, Email: kefi@gmail.com, age:15},{Last name: Emilie, First name: brouge, Email: emilie.b@gmail.com, age:40},{Last name: Alex, First name: brown, age: 4},{Last name: Denzel, First name: Washington, age:3}])
+    |                                  ^
+  2 |
+
+conatct> db.contactlist.insertMany([{"Last name":" Ben", "First name": "Moris", "Email":" ben@gmail.com", "age":26},{"Last name": "Kefi", "First name": "Seif", "Email":" kefi@gmail.com", "age":15},{"Last name": "Emilie"," First name": "brouge", "Email": "emilie.b@gmail.com", "age":40},{"Last name": "Alex", "First name": "brown", "age": 4},{"Last name":" Denzel", "First name": "Washington", "age":3}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65f8c0b416e1a9aa268bf202'),
+    '1': ObjectId('65f8c0b416e1a9aa268bf203'),
+    '2': ObjectId('65f8c0b416e1a9aa268bf204'),
+    '3': ObjectId('65f8c0b416e1a9aa268bf205'),
+    '4': ObjectId('65f8c0b416e1a9aa268bf206')
+  }
+}
+conatct> db.conactlist.find({_id: ObjectId('65f8c0b416e1a9aa268bf202')}]
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:62)
+
+> 1 | db.conactlist.find({_id: ObjectId('65f8c0b416e1a9aa268bf202')}]
+    |                                                               ^
+  2 |
+
+
+conatct> db.conactlist.find({"age":{$gt:18}})
+
+conatct> db.contactlist.insertMany([
+...     { "Last name": "Ben", "First name": "Moris", "Email": "ben@gmail.com", "age": 26 },
+...     { "Last name": "Kefi", "First name": "Seif", "Email": "kefi@gmail.com", "age": 15 },
+...     { "Last name": "Emilie", "First name": "brouge", "Email": "emilie.b@gmail.com", "age": 40 },
+...     { "Last name": "Alex", "First name": "brown", "age": 4 },
+...     { "Last name": "Denzel", "First name": "Washington", "age": 3 }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65f8da6416e1a9aa268bf207'),
+    '1': ObjectId('65f8da6416e1a9aa268bf208'),
+    '2': ObjectId('65f8da6416e1a9aa268bf209'),
+    '3': ObjectId('65f8da6416e1a9aa268bf20a'),
+    '4': ObjectId('65f8da6416e1a9aa268bf20b')
+  }
+}
+conatct> // Assuming the _id field is available, replace <ID> with the actual ID value
+
+conatct> db.contactlist.findOne({ "_id": ObjectId("<ID>") })
+BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+conatct> // Assuming the _id field is available, replace <ID> with the actual ID value
+
+conatct> db.contactlist.findOne({ "_id": ObjectId("<ID>") })
+BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+conatct> db.contactlist.findOne({ "_id": ObjectId("65f8da6416e1a9aa268bf207") })
+{
+  _id: ObjectId('65f8da6416e1a9aa268bf207'),
+  'Last name': 'Ben',
+  'First name': 'Moris',
+  Email: 'ben@gmail.com',
+  age: 26
+}
+conatct> db.contactlist.find({ "age": { $gt: 18 } })
+[
+  {
+    _id: ObjectId('65f8c0b416e1a9aa268bf202'),
+    'Last name': ' Ben',
+    'First name': 'Moris',
+    Email: ' ben@gmail.com',
+    age: 26
+  },
+  {
+    _id: ObjectId('65f8c0b416e1a9aa268bf204'),
+    'Last name': 'Emilie',
+    ' First name': 'brouge',
+    Email: 'emilie.b@gmail.com',
+    age: 40
+  },
+  {
+    _id: ObjectId('65f8da6416e1a9aa268bf207'),
+    'Last name': 'Ben',
+    'First name': 'Moris',
+    Email: 'ben@gmail.com',
+    age: 26
+  },
+  {
+    _id: ObjectId('65f8da6416e1a9aa268bf209'),
+    'Last name': 'Emilie',
+    'First name': 'brouge',
+    Email: 'emilie.b@gmail.com',
+    age: 40
+  }
+]
+conatct>     db.contactlist.updateOne({ "First name": "Seif" }, { $set: { "First name": "Anis" } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+conatct> db.contactlist.deleteMany({ "age": { $lt: 5 } })
+{ acknowledged: true, deletedCount: 4 }
+conatct> db.contactlist.find()
+[
+  {
+    _id: ObjectId('65f8c0b416e1a9aa268bf202'),
+    'Last name': ' Ben',
+    'First name': 'Moris',
+    Email: ' ben@gmail.com',
+    age: 26
+  },
+  {
+    _id: ObjectId('65f8c0b416e1a9aa268bf203'),
+    'Last name': 'Kefi',
+    'First name': 'Anis',
+    Email: ' kefi@gmail.com',
+    age: 15
+  },
+  {
+    _id: ObjectId('65f8c0b416e1a9aa268bf204'),
+    'Last name': 'Emilie',
+    ' First name': 'brouge',
+    Email: 'emilie.b@gmail.com',
+    age: 40
+  },
+  {
+    _id: ObjectId('65f8da6416e1a9aa268bf207'),
+    'Last name': 'Ben',
+    'First name': 'Moris',
+    Email: 'ben@gmail.com',
+    age: 26
+  },
+  {
+    _id: ObjectId('65f8da6416e1a9aa268bf208'),
+    'Last name': 'Kefi',
+    'First name': 'Seif',
+    Email: 'kefi@gmail.com',
+    age: 15
+  },
+  {
+    _id: ObjectId('65f8da6416e1a9aa268bf209'),
+    'Last name': 'Emilie',
+    'First name': 'brouge',
+    Email: 'emilie.b@gmail.com',
+    age: 40
+  }
+]
